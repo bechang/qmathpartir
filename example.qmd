@@ -1,0 +1,41 @@
+---
+title: "Mathpartir Example"
+filters:
+  - qmathpartir
+---
+
+::: {.mathpar}
+e
+
+\text{expression}\quad e ::= n \mid e_1 + e_2
+
+\text{expression $e$}
+:::
+
+::: {.mathpar}
+\text{text $\alpha\;\text{inner text}$}
+:::
+
+::: {.mathpar}
+\alpha\\;\beta
+:::
+
+::: {.mathpar}
+\text{softbreak}
+\and
+
+\text{hardbreak}
+\\
+:::
+
+\newcommand{\int}{\text{int}}
+
+::: {.mathpar}
+\infer[TypePlus]{
+  \Gamma \vdash e_1 : \int
+  \and
+  \Gamma \vdash e_1 : \int
+}{
+  \Gamma \vdash e_1 + e_2 : \int
+}
+:::
