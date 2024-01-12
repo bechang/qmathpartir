@@ -1,0 +1,7 @@
+project:
+  type: default
+
+format:
+  html: default
+  pdf: default
+
