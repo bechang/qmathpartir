@@ -27,7 +27,7 @@ e
 
 Text wrapped in the `\text{...}` command prevents the element from being placed into math.
 
-The `\text{...}` works just a the top-level of a `.mathpar`.
+The `\text{...}` works just at the top-level of a `.mathpar`.
 
 A limited form of the `\inferrule` (or `\infer`) command can be used for type setting inference rules.
 
