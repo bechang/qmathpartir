@@ -4,6 +4,8 @@ filters:
   - qmathpartir
 ---
 
+$\infer{ }{ \Gamma, x : \tau \vdash x : \tau }$
+
 ::: {.mathpar}
 e
 
