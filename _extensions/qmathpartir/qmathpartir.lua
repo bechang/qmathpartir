@@ -173,7 +173,11 @@ local mathjaxAdapter = pandoc.Span(math([[
 -- Entry point for the Pandoc document.
 function Pandoc(el)
   el = el:walk { Meta = mathparMeta, Div = mathparDiv }
-  -- After processing, insert some commands as a Mathjax block
-  table.insert(el.blocks, 1, mathjaxAdapter) 
+
+  if FORMAT ~= 'latex' then
+    -- After processing, insert some commands as a Mathjax block
+    table.insert(el.blocks, 1, mathjaxAdapter) 
+  end
+
   return el
 end
