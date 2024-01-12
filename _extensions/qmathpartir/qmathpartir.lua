@@ -57,32 +57,9 @@ local function mathparRawBlock(el)
   return mathparRaw(para(text), para(math))(el)
 end
 
--- Tex commands to insert as a Mathjax block
-local mathjaxAdapter = math([[
-\newcommand{TirName}[1]{\text{\small #1}}
-\newcommand{inferrule}[3][]{
-  \let\and\qquad
-  \begin{array}{@{}l@{}}
-  \TirName{#1}
-  \\
-  \displaystyle
-  \frac{#2}{#3}
-  \end{array}
-}
-\newcommand{infer}[3][]{\inferrule[#1]{#2}{#3}}
-]])
-
-local mathjaxAdapterInserted = false
-
 -- In a mathpar, process a Para
 local function mathparPara(el)
   el = el:walk { Str = mathparStr, RawInline = mathparRawInline }
-
-  if mathjaxAdapterInserted == false then
-    table.insert(el.content, 1, mathjaxAdapter)
-    mathjaxAdapterInserted = true
-  end
-
   -- After processing, merge consecutive Math(InlineMath, ...) and Space nodes.
   content = pandoc.List()
   mathstr = ''
@@ -133,7 +110,7 @@ end
 -- The main entrpoint.
 -- Process the mathpar Div.
 -- If the output is tex, then simply create a mathpar enviroment. Otherwise, process to minmic it.
-function Div(el)
+local function mathparDiv(el)
   if el.attr.classes:includes('mathpar') then
     if FORMAT == 'latex' then
       el = el:walk { Str = texStr }
@@ -143,7 +120,7 @@ function Div(el)
       el = el:walk { Para = mathparPara, RawBlock = mathparRawBlock }
       return el
     end
-  end 
+  end
 end
 
 local function deep_find_if(pred)
@@ -158,7 +135,7 @@ end
 
 -- Entry point for Meta data.
 -- Add loading mathpartir if the output is tex.
-function Meta(meta)
+local function mathparMeta(meta)
   if FORMAT == 'latex' then
     pkg = "\\usepackage{mathpartir}"
     meta['header-includes'] = meta['header-includes'] or pandoc.MetaList({})
@@ -176,4 +153,27 @@ function Meta(meta)
       return meta
     end
   end
+end
+
+-- Tex commands to insert as a Mathjax block
+local mathjaxAdapter = pandoc.Span(math([[
+\newcommand{TirName}[1]{\text{\small #1}}
+\newcommand{inferrule}[3][]{
+  \let\and\qquad
+  \begin{array}{@{}l@{}}
+  \TirName{#1}
+  \\
+  \displaystyle
+  \frac{#2}{#3}
+  \end{array}
+}
+\newcommand{infer}[3][]{\inferrule[#1]{#2}{#3}}
+]]))
+
+-- Entry point for the Pandoc document.
+function Pandoc(el)
+  el = el:walk { Meta = mathparMeta, Div = mathparDiv }
+  -- After processing, insert some commands as a Mathjax block
+  table.insert(el.blocks, 1, mathjaxAdapter) 
+  return el
 end
