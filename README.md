@@ -59,5 +59,6 @@ Here is the source code for a minimal example: [example.qmd](example.qmd).
 
 ## Version History
 
-v1.0.1 2023-01-12 Bugfix: Insert tex commands for Mathjax (#1)
-v1.0.0 2023-12-26 Initial version.
+- v1.0.2 2024-01-12 Bugfix: Only insert commands in non-tex output (#3)
+- v1.0.1 2024-01-12 Bugfix: Insert tex commands for Mathjax (#1)
+- v1.0.0 2023-12-26 Initial version.
