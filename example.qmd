@@ -19,6 +19,10 @@ e
 :::
 
 ::: {.mathpar}
+\text{alpha $\frac{1}{2}$}\quad\text{def}
+:::
+
+::: {.mathpar}
 \alpha\\;\beta
 :::
 
@@ -41,3 +45,35 @@ e
   \Gamma \vdash e_1 + e_2 : \tInt
 }
 :::
+
+::: {.mathpar}
+\Gamma \and \Sigma
+\\
+
+\Delta
+:::
+
+``` {.mathpar}
+\Gamma \and \Sigma
+\\
+
+\Delta
+```
+
+```math {.mathpar}
+\Gamma \and \Sigma
+\\
+
+\Delta
+```
+
+```mathpar
+\Gamma \and \Sigma
+\\
+
+\Delta
+```
+
+$$
+\Sigma
+$$
