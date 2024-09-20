@@ -33,6 +33,7 @@ end
 local function mathparRaw(text, math)
   return function(el)
     if el.format == 'tex' then
+      -- TODO need a stack
       _, _, t = string.find(el.text, '^\\text{(.*)}$')
       if t then
         -- Leave as a text element if there is a \text{...} command.
@@ -123,6 +124,10 @@ local function mathparDiv(el)
   end
 end
 
+local function mathparCodeBlock(el)
+  return mathparDiv(pandoc.Div(pandoc.read(el.text).blocks, { class = 'mathpar' }))
+end
+
 local function deep_find_if(pred)
   return function(x)
     if type(x.find_if) == 'function' then
@@ -172,7 +177,7 @@ local mathjaxAdapter = pandoc.Span(math([[
 
 -- Entry point for the Pandoc document.
 function Pandoc(el)
-  el = el:walk { Meta = mathparMeta, Div = mathparDiv }
+  el = el:walk { Meta = mathparMeta, Div = mathparDiv, CodeBlock = mathparCodeBlock }
 
   if FORMAT ~= 'latex' then
     -- After processing, insert some commands as a Mathjax block
