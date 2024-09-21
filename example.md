@@ -62,6 +62,10 @@ e
 \Gamma
 ```
 
+```scala
+val x = 3
+```
+
 $$
 \Sigma
 $$

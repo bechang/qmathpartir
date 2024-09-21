@@ -125,7 +125,9 @@ local function mathparDiv(el)
 end
 
 local function mathparCodeBlock(el)
-  return mathparDiv(pandoc.Div(pandoc.read(el.text).blocks, { class = 'mathpar' }))
+  if el.attr.classes:includes('mathpar') then
+    return mathparDiv(pandoc.Div(pandoc.read(el.text).blocks, { class = 'mathpar' }))
+  end
 end
 
 local function deep_find_if(pred)
