@@ -55,7 +55,7 @@ Commands with symbols (e.g., `\;`) require an extra backslash, as in the followi
 
 ## Example
 
-Here is the source code for a minimal example: [example.qmd](example.qmd).
+Here is the source code for a minimal example: [example.md](example.md).
 
 ## Version History
 
