@@ -43,6 +43,20 @@ A limited form of the `\inferrule` (or `\infer`) command can be used for type se
 :::
 ```
 
+You can also use code blocks with the `.mathpar` class:
+
+```
+```mathpar
+```
+
+```
+``` {.mathpar}
+```
+
+```
+```math {.mathpar}
+```
+
 ## Quirks
 
 Commands with symbols (e.g., `\;`) require an extra backslash, as in the following:
