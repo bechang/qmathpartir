@@ -47,31 +47,19 @@ e
 :::
 
 ::: {.mathpar}
-\Gamma \and \Sigma
-\\
-
-\Delta
+\Gamma
 :::
 
 ``` {.mathpar}
-\Gamma \and \Sigma
-\\
-
-\Delta
+\Gamma
 ```
 
 ```math {.mathpar}
-\Gamma \and \Sigma
-\\
-
-\Delta
+\Gamma
 ```
 
 ```mathpar
-\Gamma \and \Sigma
-\\
-
-\Delta
+\Gamma
 ```
 
 $$

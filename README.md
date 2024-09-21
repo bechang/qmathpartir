@@ -43,6 +43,20 @@ A limited form of the `\inferrule` (or `\infer`) command can be used for type se
 :::
 ```
 
+You can also use code blocks with the `.mathpar` class:
+
+```
+```mathpar
+```
+
+```
+``` {.mathpar}
+```
+
+```
+```math {.mathpar}
+```
+
 ## Quirks
 
 Commands with symbols (e.g., `\;`) require an extra backslash, as in the following:
@@ -55,11 +69,11 @@ Commands with symbols (e.g., `\;`) require an extra backslash, as in the followi
 
 ## Example
 
-Here is the source code for a minimal example: [example.qmd](example.qmd).
+Here is the source code for a minimal example: [example.md](example.md).
 
 ## Version History
 
-- v1.1.0 2024-09-20 Add support for mathpar code blocks (#4)
+- v1.1.0 2024-09-20 Add support for mathpar code blocks (#4-#7)
 - v1.0.2 2024-01-12 Bugfix: Only insert commands in non-tex output (#3)
 - v1.0.1 2024-01-12 Bugfix: Insert tex commands for Mathjax (#1)
 - v1.0.0 2023-12-26 Initial version.
