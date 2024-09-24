@@ -164,8 +164,8 @@ end
 
 -- Tex commands to insert as a Mathjax block
 local mathjaxAdapter = pandoc.Span(math([[
-\newcommand{TirName}[1]{\text{\small #1}}
-\newcommand{inferrule}[3][]{
+\newcommand{\TirName}[1]{\text{\small #1}}
+\newcommand{\inferrule}[3][]{
   \let\and\qquad
   \begin{array}{@{}l@{}}
   \TirName{#1}
@@ -174,7 +174,7 @@ local mathjaxAdapter = pandoc.Span(math([[
   \frac{#2}{#3}
   \end{array}
 }
-\newcommand{infer}[3][]{\inferrule[#1]{#2}{#3}}
+\newcommand{\infer}[3][]{\inferrule[#1]{#2}{#3}}
 ]]))
 
 -- Entry point for the Pandoc document.

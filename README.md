@@ -73,6 +73,7 @@ Here is the source code for a minimal example: [example.md](example.md).
 
 ## Version History
 
+- v1.1.2 2024-09-24 Bugfix: Fix inferrule commands (#9)
 - v1.1.1 2024-09-20 Bugfix: Non-mathpar code blocks should not be translated (#8)
 - v1.1.0 2024-09-20 Add support for mathpar code blocks (#4-#7)
 - v1.0.2 2024-01-12 Bugfix: Only insert commands in non-tex output (#3)
