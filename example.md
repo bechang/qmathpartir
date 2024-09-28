@@ -1,7 +1,11 @@
 ---
 title: "Mathpartir Example"
 filters:
-  - qmathpartir
+- quarto
+- qmathpartir
+format:
+  html:
+    css: _extensions/qmathpartir/qmathpartir.css
 ---
 
 $\infer{ }{ \Gamma, x : \tau \vdash x : \tau }$
@@ -44,22 +48,46 @@ e
 }{
   \Gamma \vdash e_1 + e_2 : \tInt
 }
+
+\infer[TypePlus]{
+  \Gamma \vdash e_1 : \tInt
+  \and
+  \Gamma \vdash e_1 : \tInt
+}{
+  \Gamma \vdash e_1 + e_2 : \tInt
+}
+
+\infer[TypePlus]{
+  \Gamma \vdash e_1 : \tInt
+  \and
+  \Gamma \vdash e_1 : \tInt
+}{
+  \Gamma \vdash e_1 + e_2 : \tInt
+}
+
+\infer[TypePlus]{
+  \Gamma \vdash e_1 : \tInt
+  \and
+  \Gamma \vdash e_1 : \tInt
+}{
+  \Gamma \vdash e_1 + e_2 : \tInt
+}
 :::
 
 ::: {.mathpar}
-\Gamma
+\tInt \Gamma
 :::
 
 ``` {.mathpar}
-\Gamma
+\tInt \Gamma
 ```
 
 ```math {.mathpar}
-\Gamma
+\tInt \Gamma
 ```
 
 ```mathpar
-\Gamma
+\tInt \Gamma
 ```
 
 ```scala
