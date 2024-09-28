@@ -1,8 +1,11 @@
 ---
 title: "Mathpartir Example"
 filters:
+- quarto
 - qmathpartir
-css: _extensions/qmathpartir/qmathpartir.css
+format:
+  html:
+    css: _extensions/qmathpartir/qmathpartir.css
 ---
 
 $\infer{ }{ \Gamma, x : \tau \vdash x : \tau }$
@@ -38,6 +41,14 @@ e
 \newcommand{\tInt}{\text{int}}
 
 ::: {.mathpar}
+\infer[TypePlus]{
+  \Gamma \vdash e_1 : \tInt
+  \and
+  \Gamma \vdash e_1 : \tInt
+}{
+  \Gamma \vdash e_1 + e_2 : \tInt
+}
+
 \infer[TypePlus]{
   \Gamma \vdash e_1 : \tInt
   \and
