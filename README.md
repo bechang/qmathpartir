@@ -90,7 +90,7 @@ Here is the source code for a minimal example: [example.md](example.md).
 
 ## Version History
 
-- v1.2.0 2024-09-28 Add basic css for mathpar blocks (#10-#11)
+- v1.2.0 2024-09-28 Add basic css for mathpar blocks (#10-#12)
 - v1.1.2 2024-09-24 Bugfix: Fix inferrule commands (#9)
 - v1.1.1 2024-09-20 Bugfix: Non-mathpar code blocks should not be translated (#8)
 - v1.1.0 2024-09-20 Add support for mathpar code blocks (#4-#7)
