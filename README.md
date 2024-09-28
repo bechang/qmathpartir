@@ -11,6 +11,23 @@ quarto add bechang/qmathpartir
 This will install the extension under the `_extensions` subdirectory.
 If you're using version control, you will want to check in this directory.
 
+## Loading
+
+To use the extension, add the following to your document's metadata:
+
+```yaml
+filters:
+- quarto
+- qmathpartir
+format:
+  html:
+    css: _extensions/qmathpartir/qmathpartir.css
+```
+
+While not required, you may apply the `qmathpartir` filter after the `quarto` filters have been applied as shown above.
+
+For any html format, the css file `_extensions/qmathpartir/qmathpartir.css` should be included to apply flex-flow styles to the `.mathpar` blocks. We intentionally do not make this extension a custom format to enable to use this extension with any appropriate format.
+
 ## Using
 
 Div blocks with the `.mathpar` class are processed so that each paragraph is an inline math element `$...$`:
@@ -73,6 +90,7 @@ Here is the source code for a minimal example: [example.md](example.md).
 
 ## Version History
 
+- v1.2.0 2024-09-24 Add basic css for mathpar blocks (#10)
 - v1.1.2 2024-09-24 Bugfix: Fix inferrule commands (#9)
 - v1.1.1 2024-09-20 Bugfix: Non-mathpar code blocks should not be translated (#8)
 - v1.1.0 2024-09-20 Add support for mathpar code blocks (#4-#7)
