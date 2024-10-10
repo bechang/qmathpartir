@@ -90,7 +90,7 @@ Here is the source code for a minimal example: [example.md](example.md).
 
 ## Version History
 
-- v1.2.2 2024-10-09 Remove \small for better Mathjax compatibility (#15)
+- v1.2.2 2024-10-09 Remove \small for better Mathjax compatibility
 - v1.2.1 2024-10-09 Update \small to \small{} for better Mathjax compatibility (#14)
 - v1.2.0 2024-09-28 Add basic css for mathpar blocks (#10-#13)
 - v1.1.2 2024-09-24 Bugfix: Fix inferrule commands (#9)
