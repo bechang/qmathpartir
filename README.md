@@ -60,6 +60,20 @@ A limited form of the `\inferrule` (or `\infer`) command can be used for type se
 :::
 ```
 
+You can also use `\inferlab{label}{premises}{conclusion}` to place a label above the inference rule, or `\inferright{label}{premises}{conclusion}` to place a label on the right of the inference rule.
+
+```
+::: {.mathpar}
+\inferright{TypePlus}{
+  \Gamma \vdash e_1 : \int
+  \and
+  \Gamma \vdash e_1 : \int
+}{
+  \Gamma \vdash e_1 + e_2 : \int
+}
+:::
+```
+
 You can also use code blocks with the `.mathpar` class:
 
 ```
@@ -90,6 +104,7 @@ Here is the source code for a minimal example: [example.md](example.md).
 
 ## Version History
 
+- v1.3.0 2025-09-01 Add command for typesetting label on the right (#15)
 - v1.2.2 2024-10-09 Remove \small for better Mathjax compatibility
 - v1.2.1 2024-10-09 Update \small to \small{} for better Mathjax compatibility (#14)
 - v1.2.0 2024-09-28 Add basic css for mathpar blocks (#10-#13)

@@ -75,6 +75,24 @@ e
 :::
 
 ::: {.mathpar}
+\inferright{TypePlus}{
+  \Gamma \vdash e_1 : \tInt
+  \and
+  \Gamma \vdash e_1 : \tInt
+}{
+  \Gamma \vdash e_1 + e_2 : \tInt
+}
+
+\inferright{TypePlus}{
+  \Gamma \vdash e_1 : \tInt
+  \and
+  \Gamma \vdash e_1 : \tInt
+}{
+  \Gamma \vdash e_1 + e_2 : \tInt
+}
+:::
+
+::: {.mathpar}
 \tInt \Gamma
 :::
 

@@ -140,6 +140,8 @@ local function deep_find_if(pred)
   end
 end
 
+
+
 -- Entry point for Meta data.
 -- Add loading mathpartir if the output is tex.
 local function mathparMeta(meta)
@@ -165,17 +167,28 @@ end
 -- Tex commands to insert as a Mathjax block
 local mathjaxAdapter = pandoc.Span(math([[
 \newcommand{\TirName}[1]{\text{#1}}
-\newcommand{\inferrule}[3][]{
+\newcommand{\inferlab}[3]{
   \let\and\qquad
-  \begin{array}{@{}l@{}}
+  \begin{array}{l}
   \TirName{#1}
   \\
   \displaystyle
   \frac{#2}{#3}
   \end{array}
 }
+\newcommand{\inferright}[3]{
+  \let\and\qquad
+  \displaystyle
+  \frac{#2}{#3}\TirName{#1}
+}
+\newcommand{\inferrule}[3][]{\inferlab{#1}{#2}{#3}}
 \newcommand{\infer}[3][]{\inferrule[#1]{#2}{#3}}
 ]]))
+
+local latexAdapter = pandoc.RawBlock("latex", [[
+\newcommand{\inferlab}[3]{\inferrule[#1]{#2}{#3}}
+\newcommand{\inferright}[3]{\inferrule*[right=#1]{#2}{#3}}
+]])
 
 -- Entry point for the Pandoc document.
 function Pandoc(el)
@@ -184,6 +197,8 @@ function Pandoc(el)
   if FORMAT ~= 'latex' then
     -- After processing, insert some commands as a Mathjax block
     table.insert(el.blocks, 1, mathjaxAdapter) 
+  else
+    table.insert(el.blocks, 1, latexAdapter) 
   end
 
   return el
