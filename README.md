@@ -60,6 +60,20 @@ A limited form of the `\inferrule` (or `\infer`) command can be used for type se
 :::
 ```
 
+You can also use `\inferlab{label}{premises}{conclusion}` to place a label above the inference rule, or `\inferright{label}{premises}{conclusion}` to place a label on the right of the inference rule.
+
+```
+::: {.mathpar}
+\inferright{TypePlus}{
+  \Gamma \vdash e_1 : \int
+  \and
+  \Gamma \vdash e_1 : \int
+}{
+  \Gamma \vdash e_1 + e_2 : \int
+}
+:::
+```
+
 You can also use code blocks with the `.mathpar` class:
 
 ```
